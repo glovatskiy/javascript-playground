@@ -36,3 +36,14 @@ const download = new Promise((resolve, reject) => {
         }
     }, 2000)
 })
+
+const photoUpload = new Promise((resolve, reject) => {
+    const isUploaded = true
+    setTimeout(() => {
+        if (upload === true) {
+            resolve("Photo uploaded")
+        } else {
+            reject("Upload failed")
+        }
+    },3000)
+})
