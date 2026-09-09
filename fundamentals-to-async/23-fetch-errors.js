@@ -48,3 +48,30 @@ async function showUser() {
 }
 
 showUser()
+
+async function getPost() {
+    try {
+        const url = "https://jsonplaceholder.typicode.com/posts/1"
+        const response = await fetch(url)
+        console.log(response)
+        if (!response.ok) {
+            throw new Error ("Cannot load post")
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+async function showPost() {
+    try {
+        const post = await getPost()
+        console.log(post.title)
+        console.log(post.body);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+showPost()
